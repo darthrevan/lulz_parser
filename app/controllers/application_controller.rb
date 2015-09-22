@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    @champions = Champion.get_all.sort_by(&:lss).reverse
+    @champions = Champion.all.sort_by(&:lss).reverse
     @best_picks = []
     Champion::CHAMPION_ROLES.each do |r|
       @best_picks << { r => Champion.get_best_by_role(r.to_s, 2) }

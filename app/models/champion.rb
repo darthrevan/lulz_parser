@@ -10,15 +10,11 @@ class Champion < ActiveRecord::Base
     end
   end
 
-  def self.get_all
-    Summoner.all.map(&:champions).flatten
-  end
-
   def self.get_best_by_role(role, count = 1)
-    Champion.get_all.select{ |c| c.role == role }.sort_by(&:lss).reverse.first
+    Champion.where(role: role).sort_by(&:lss).reverse.first
   end
 
   def self.get_worst_by_role(role,  count = 1)
-    Champion.get_all.select{ |c| c.role == role }.sort_by(&:lss).reverse.first
+    Champion.where(role: role).sort_by(&:lss).reverse.first
   end
 end
