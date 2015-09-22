@@ -1,8 +1,5 @@
-class Summoner
-  include Mongoid::Document
-  field :name, type: String
-
-  embeds_many :champions
+class Summoner < ActiveRecord::Base
+  has_many :champions
 
   validates :name, uniqueness: true, presence: true
 end

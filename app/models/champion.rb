@@ -1,14 +1,7 @@
-class Champion
+class Champion < ActiveRecord::Base
   CHAMPION_ROLES = %i[top jungle mid adc support]
-  include Mongoid::Document
-  field :name, type: String
-  field :role, type: String
-  field :position, type: Integer
-  field :icon, type: String
-  field :lss, type: Integer
-  field :performance, type: Float
 
-  embedded_in :summoner, inverse_of: :champions
+  belongs_to :summoner
   validates :role, inclusion: { in: CHAMPION_ROLES }, :allow_nil => true
 
   def self.set_role(champion_name, role)

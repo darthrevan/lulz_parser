@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_info
-    Summoner.each do |s|
+    Summoner.all.each do |s|
       SummonerParser.new(s.id).perform
     end
     
