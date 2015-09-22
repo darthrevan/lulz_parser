@@ -28,7 +28,7 @@ class SummonersController < ApplicationController
 
     respond_to do |format|
       if @summoner.save
-        format.html { redirect_to @summoner, notice: 'Summoner was successfully created.' }
+        format.html { redirect_to summoners_path, notice: 'Summoner was successfully created.' }
         format.json { render :show, status: :created, location: @summoner }
       else
         format.html { render :new }
