@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
     @champions = Champion.all.sort_by(&:lss).reverse
     @best_picks = []
     Champion::CHAMPION_ROLES.each do |r|
-      @best_picks << { r => Champion.get_best_by_role(r.to_s, 2) }
+      Champion.get_best_by_role(r.to_s, 3).each do |c|
+        @best_picks << { r => c}
+      end
     end
   end
 

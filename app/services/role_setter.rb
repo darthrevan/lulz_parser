@@ -30,7 +30,7 @@ class RoleSetter
     "Fiddlesticks" => "jungle",
     "Fiora" => "top",
     "Fizz" => "mid",
-    "Galio" => "support",
+    "Galio" => "mid",
     "Gangplank" => "top",
     "Garen" => "top",
     "Gnar" => "top",

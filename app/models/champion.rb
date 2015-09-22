@@ -11,10 +11,10 @@ class Champion < ActiveRecord::Base
   end
 
   def self.get_best_by_role(role, count = 1)
-    Champion.where(role: role).sort_by(&:lss).reverse.first
+    Champion.where(role: role).sort_by(&:lss).reverse.first(count)
   end
 
   def self.get_worst_by_role(role,  count = 1)
-    Champion.where(role: role).sort_by(&:lss).reverse.first
+    Champion.where(role: role).sort_by(&:lss).reverse.first(count)
   end
 end
