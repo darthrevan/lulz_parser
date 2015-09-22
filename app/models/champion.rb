@@ -1,11 +1,11 @@
 class Champion < ActiveRecord::Base
-  CHAMPION_ROLES = %i[top jungle mid adc support]
+  CHAMPION_ROLES = %w[top jungle mid adc support]
 
   belongs_to :summoner
   validates :role, inclusion: { in: CHAMPION_ROLES }, :allow_nil => true
 
   def self.set_role(champion_name, role)
-    Summoner.all.map(&:champions).flatten.select { |f| f.name == champion_name }.each do |c|
+    Champion.where(name: champion_name).each do |c|
       c.update_attributes(role: role)
     end
   end
