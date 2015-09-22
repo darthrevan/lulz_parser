@@ -1,6 +1,5 @@
 class RoleSetter
 
-
   @champions = {
     "Aatrox" => "jungle",
     "Ahri" => "mid",

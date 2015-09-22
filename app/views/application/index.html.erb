@@ -3,10 +3,9 @@
   <div class="row">
     <div class="col-md-6">
       <h2>All champions</h2>
-      <table class="table">
+      <table class="table tablesorter" id="champion_table">
         <thead>
           <tr>
-            <th>Position</th>
             <th>Icon</th>
             <th>Name</th>
             <th>Role</th>
@@ -18,7 +17,6 @@
         <tbody>
           <% @champions.each do |champion| %>
             <tr>
-              <td><%= champion.position %></td>
               <td><img src="<%= champion.icon %>"></td>
               <td><%= champion.name %> (<%= champion.summoner.name %>) </td>
               <td><%= champion.role %></td>
@@ -30,11 +28,10 @@
       </table>
     </div>
     <div class="col-md-4">
-      <table class="table">
+      <table class="table tablesorter" id="pick_table">
         <h2>Best Picks</h2>
         <thead>
           <tr>
-            <th>Position</th>
             <th>Icon</th>
             <th>Name</th>
             <th>Role</th>
@@ -48,7 +45,6 @@
             <% pick.each do |position, champion|%>
               <% if champion%>
                 <tr>
-                  <td><%= champion.position %></td>
                   <td><img src="<%= champion.icon %>"></td>
                   <td><%= champion.name %> (<%= champion.summoner.name %>) </td>
                   <td><%= champion.role %></td>
